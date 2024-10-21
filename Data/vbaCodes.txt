@@ -1,0 +1,103 @@
+Sub ExtendFormula(worksheet as String, lastRow as Long)
+    Dim formulaCell As Range
+
+    ' Set the worksheet
+    Set ws = ThisWorkbook.Sheets(worksheet)
+
+    if ws.Name = "Pivot by CC" Then
+ 	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("E6")
+	
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("E6:E" & lastRow)
+
+	 ' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("F6")
+	
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("F6:F" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("G6")
+
+   	 ' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("G6:G" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("H6")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("H6:H" & lastRow)
+
+	 ' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("I6")
+	
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("I6:I" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("J6")
+
+   	 ' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("J6:J" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("K6")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("K6:K" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("L6")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("L6:L" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("M6")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("M6:M" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("N6")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("N6:N" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("O6")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("O6:O" & lastRow)
+
+    End if
+  
+    if ws.Name = "Journal" Then
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("B4")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("B4:4" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("I3")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("I3:I" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("L3")
+
+   	 ' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("L3:L" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("S3")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("S3:S" & lastRow)
+    End if
+
+End Sub

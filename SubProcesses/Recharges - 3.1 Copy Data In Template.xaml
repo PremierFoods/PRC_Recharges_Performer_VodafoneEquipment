@@ -1,13 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AfterResume" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AfterResume" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_strInvoiceFilePath" Type="InArgument(x:String)" />
     <x:Property Name="in_strTemplatePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_strPDFInvoice" Type="InArgument(x:String)" />
   </x:Members>
+  <this:AfterResume.in_strPDFInvoice>
+    <InArgument x:TypeArguments="x:String" />
+  </this:AfterResume.in_strPDFInvoice>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054.4,1021.5999999999999</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1055.2,2160</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AfterResume_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -145,9 +149,10 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Recharges - Copy Data In Template" sap:VirtualizedContainerService.HintSize="545.6,956.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Steps done in this workflow:&#xD;&#xA;1. Read Invoice&#xD;&#xA;2. Write Invoice into Workings tab from Vodafone Equipment template&#xD;&#xA;3. Open PDF file&#xD;&#xA;4. Take screenshot of PDF&#xD;&#xA;5. Paste screenshot into Back-up and Pivot by CC tab from Vodafone Equipment template&#xD;&#xA;" DisplayName="Recharges - 3.1 Copy Data In Template" sap:VirtualizedContainerService.HintSize="545.6,2095.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtSummary" />
+      <Variable x:TypeArguments="ui:Image" Name="screenshot" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -155,7 +160,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - Invoice" sap:VirtualizedContainerService.HintSize="483.2,281.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_strInvoiceFilePath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Invoice" sap:VirtualizedContainerService.HintSize="483.2,281.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_strInvoiceFilePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -178,14 +183,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:LogMessage DisplayName="Log Messag - Success DT" sap:VirtualizedContainerService.HintSize="483.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Table successfully extracted. Number of rows: &quot;+dtSummary.RowCount.ToString]">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:LogMessage>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - Template Path" sap:VirtualizedContainerService.HintSize="483.2,309.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="[in_strTemplatePath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Template Path" sap:VirtualizedContainerService.HintSize="483.2,309.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_strTemplatePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -197,7 +195,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelWriteRange AddHeaders="False" DataTable="[dtSummary]" DisplayName="Write Range - Data Received" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_4" SheetName="[in_Config(&quot;VodafoneWorkingsSheetName&quot;).ToString]" StartingCell="[in_Config(&quot;VodafoneWorkingsRange&quot;).ToString]" />
+            <ui:ExcelWriteRange AddHeaders="False" DataTable="[dtSummary]" DisplayName="Write Range - Workings" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_4" SheetName="[in_Config(&quot;VodafoneWorkingsSheetName&quot;).ToString]" StartingCell="[in_Config(&quot;VodafoneWorkingsRange&quot;).ToString]" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
@@ -208,5 +206,56 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process - Open PDF Invoice" FileName="[in_strPDFInvoice]" sap:VirtualizedContainerService.HintSize="483.2,88" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+    <ui:SetFocus DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Set Focus on PDF Invoice" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="SetFocus_1">
+      <ui:SetFocus.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b620dd15-bd72-4533-8dee-9371db0fe99e" InformativeScreenshot="fc5077c32d4c1b1976fcfe916df2eb2d" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:SetFocus.Target>
+    </ui:SetFocus>
+    <ui:TakeScreenshot DisplayName="Take Screenshot - PDF Invoice" sap:VirtualizedContainerService.HintSize="483.2,86.4" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[screenshot]" WaitBefore="600">
+      <ui:TakeScreenshot.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="8ffd2612-abfe-4104-aeda-5cac75686c6f">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:TakeScreenshot.Target>
+    </ui:TakeScreenshot>
+    <ui:SaveImage DisplayName="Save Image of PDF invoice" FileName="[in_Config(&quot;Recharges_SaveScreenshotLocation&quot;).ToString]" sap:VirtualizedContainerService.HintSize="483.2,134.4" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[screenshot]" />
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Vodafone usage" sap:VirtualizedContainerService.HintSize="483.2,437.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_strTemplatePath]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,328" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="[in_Config(&quot;vbaCodes&quot;).ToString]" DisplayName="Invoke VBA - Insert Picture in Back-up tab" EntryMethodName="[in_Config(&quot;vbaInsertPicture&quot;).ToString]" EntryMethodParameters="[{in_Config(&quot;VodafoneBackupSheetName&quot;).ToString,in_Config(&quot;VodafoneBackupRange&quot;).ToString,in_Config(&quot;Recharges_SaveScreenshotLocation&quot;).ToString}]" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_1" />
+            <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="[in_Config(&quot;vbaCodes&quot;).ToString]" DisplayName="Invoke VBA - Insert Picture in Pivot by CC tab" EntryMethodName="[in_Config(&quot;vbaInsertPicture&quot;).ToString]" EntryMethodParameters="[{in_Config(&quot;VodafonePivotByCCSheetName&quot;).ToString,in_Config(&quot;VodafonePivotByCCCaptureRange&quot;).ToString,in_Config(&quot;Recharges_SaveScreenshotLocation&quot;).ToString}]" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_2" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="OnlyCurrentSession" DisplayName="Kill Process - PDF" sap:VirtualizedContainerService.HintSize="483.2,134.4" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="AcroRd32.exe" />
   </Sequence>
 </Activity>

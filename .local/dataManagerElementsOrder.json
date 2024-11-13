@@ -29,12 +29,13 @@
       "Path": "SubProcesses/Recharges - 3.3 Identify Cost Center.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dtTracker&Sequence_1",
         "dtWorkings&Sequence_1",
-        "dtActiveList&Sequence_1",
-        "dtMissingCC&Sequence_1",
-        "strMailBody&Sequence_1"
+        "dtActiveList&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "out_strInvoiceDate",
+        "out_strMailBody",
         "in_Config",
         "in_strInvoiceFilePath",
         "in_strTemplatePath"
@@ -51,8 +52,7 @@
         "dtUnprocessedActiveList&Sequence_1",
         "intRowIndex&Sequence_1",
         "rowData&Sequence_1",
-        "strSheetName&Sequence_5",
-        "strSheetName&Sequence_3"
+        "strSheetName&Sequence_5"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_Config",
@@ -66,6 +66,8 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "strInvoiceDate&Sequence_1",
+        "strMailBody&Sequence_1",
         "dtPivotTable&Sequence_1",
         "strPeriod&Sequence_1",
         "dtDataForJournal&Sequence_1"
@@ -116,7 +118,7 @@
       "Path": "SubProcesses/Recharges - 3.5 Update Journal.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dtWorkings&Sequence_1"
+        "dtPivot&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_Config",
@@ -130,23 +132,81 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
         "strSubProcessName&Sequence_1",
-        "dtDataReceived&Sequence_1",
-        "dtSummaryData&Flowchart_1",
-        "intRowIndex&Flowchart_1",
-        "strJournalHeaderText&Flowchart_1",
-        "strReference&Flowchart_1",
-        "strPreparedBy&Flowchart_1",
-        "strDatePrepared&Flowchart_1",
-        "strFinancialYear&Flowchart_1",
-        "strDocumentDate&Flowchart_1",
-        "strPostingPeriod&Flowchart_1"
+        "dtDataReceived&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_Config",
         "in_strTemplatePath",
         "in_strFiscalYear",
-        "in_strFiscalMonth",
-        "in_strAttachmentMonth"
+        "in_strFiscalMonth"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SubProcesses/Recharges - 3.1 Copy Data In Template.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "screenshot&Sequence_1",
+        "dtSummary&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strPDFInvoice",
+        "in_Config",
+        "in_strInvoiceFilePath",
+        "in_strTemplatePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "test.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1",
+        "strLocation&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SubProcesses/SharePoint - Download CSN File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt&Sequence_1",
+        "strComponentName&Sequence_1",
+        "strAppId&Sequence_1",
+        "sstrAppSecret&Sequence_1",
+        "strSiteURL&Sequence_1",
+        "strTenantID&Sequence_1",
+        "diCSNFile&Sequence_1",
+        "strAppSecret&Sequence_1",
+        "diFiles&Sequence_4",
+        "strFileId&Sequence_4",
+        "boolFileExists&Sequence_6",
+        "strDownloadPath&Sequence_6"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "out_CSNFileLocation",
+        "in_StrDownloadLocation"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

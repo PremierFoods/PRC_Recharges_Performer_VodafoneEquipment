@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054.4,706.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1055.2,706.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AfterResume_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -62,6 +62,7 @@
       <x:String>UiPath.UIAutomationNext.Activities.Triggers</x:String>
       <x:String>UiPath.Platform.Triggers.Scope</x:String>
       <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -143,9 +144,9 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Recharges - 3.6 Update Journal" sap:VirtualizedContainerService.HintSize="545.6,552.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Steps done in this workflow:&#xA;1. Build Active List headers&#xA;2. Read Active list csv&#xA;3. Add csv data into Active list datatable&#xA;4. Write Active list datatable into active list tab from Vodafone Equipment template&#xA;" DisplayName="Recharges - 3.5 Update Journal" sap:VirtualizedContainerService.HintSize="545.6,565.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dtWorkings" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtPivot" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -153,26 +154,20 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - Vodafone usage" sap:VirtualizedContainerService.HintSize="483.2,409.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_7" InstanceCachePeriod="3000" WorkbookPath="[in_strTemplatePath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Vodafone usage" sap:VirtualizedContainerService.HintSize="483.2,409.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_9" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_strTemplatePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,300" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,300" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[dtWorkings]" DisplayName="Read Range - Workings" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="[in_Config(&quot;VodafoneWorkingsReadRange&quot;).ToString]" SheetName="[in_Config(&quot;VodafoneWorkingsSheetName&quot;).ToString]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ExcelReadRange>
-            <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="[in_Config(&quot;vbaCodes&quot;).ToString]" DisplayName="Invoke VBA - Extend Formula" EntryMethodName="[in_Config(&quot;vbaExtendFormula&quot;).ToString]" EntryMethodParameters="[{in_Config(&quot;VodafoneJournalSheetName&quot;).ToString,(dtWorkings.rows.Count+1).ToString}]" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_1" />
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[dtPivot]" DisplayName="Read Range Pivot" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="[in_Config(&quot;VodafonePivotByCCRange&quot;).ToString]" SheetName="[in_Config(&quot;VodafonePivotByCCSheetName&quot;).ToString]" />
+            <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="[in_Config(&quot;vbaCodes&quot;).ToString]" DisplayName="Invoke VBA - Extend Formula" EntryMethodName="[in_Config(&quot;vbaExtendFormula&quot;).ToString]" EntryMethodParameters="[{in_Config(&quot;VodafoneJournalSheetName&quot;).ToString,(dtPivot.AsEnumerable.Where(function(x) x(0).tostring &lt;&gt; &quot;Grand Total&quot;).CopyToDataTable.rows.Count+5).ToString}]" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_3" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>

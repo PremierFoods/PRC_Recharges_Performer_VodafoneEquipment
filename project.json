@@ -3,7 +3,7 @@
   "description": "Robotic Enterprise Framework",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.20.2]",
+    "UiPath.Excel.Activities": "[2.24.2]",
     "UiPath.MicrosoftOffice365.Activities": "[2.7.22]",
     "UiPath.System.Activities": "[23.4.3]",
     "UiPath.Testing.Activities": "[23.4.1]",

@@ -1,5 +1,7 @@
 Sub ExtendFormula(worksheet as String, lastRow as Long)
     Dim formulaCell As Range
+    Dim sourceValue As Variant
+    Dim cell As Range
 
     ' Set the worksheet
     Set ws = ThisWorkbook.Sheets(worksheet)
@@ -74,30 +76,96 @@ Sub ExtendFormula(worksheet as String, lastRow as Long)
     End if
   
     if ws.Name = "Journal" Then
+       Set pt = ThisWorkbook.Worksheets("Pivot by CC").PivotTables("Pivot by CC")  
+        pt.RefreshTable
+        lastRow = pt.DataBodyRange.Count + 2
+
+    	' Get the value from cell B4
+    	sourceValue = ThisWorkbook.Worksheets(worksheet).Range("B4").Value  
+
+        ' Loop through each cell in the range  and assign the value from B4
+        For Each cell In ThisWorkbook.Worksheets(worksheet).Range("B5:B"& lastRow)
+           If cell.Locked = False Then
+            cell.Value = sourceValue
+           End If
+        Next cell
 
     	' Set the cell that contains the initial formula
-    	Set formulaCell = ws.Range("B4")
+    	Set formulaCell = ws.Range("I4")
 
     	' Extend the formula down to the last row
-    	formulaCell.AutoFill Destination:=ws.Range("B4:4" & lastRow)
+    	formulaCell.AutoFill Destination:=ws.Range("I4:I" & lastRow)
 
     	' Set the cell that contains the initial formula
-    	Set formulaCell = ws.Range("I3")
-
-    	' Extend the formula down to the last row
-    	formulaCell.AutoFill Destination:=ws.Range("I3:I" & lastRow)
-
-    	' Set the cell that contains the initial formula
-    	Set formulaCell = ws.Range("L3")
+    	Set formulaCell = ws.Range("L4")
 
    	 ' Extend the formula down to the last row
-    	formulaCell.AutoFill Destination:=ws.Range("L3:L" & lastRow)
+    	formulaCell.AutoFill Destination:=ws.Range("L4:L" & lastRow)
+        
+	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("S5")
 
-    	' Set the cell that contains the initial formula
-    	Set formulaCell = ws.Range("S3")
-
-    	' Extend the formula down to the last row
-    	formulaCell.AutoFill Destination:=ws.Range("S3:S" & lastRow)
+   	 ' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("S5:S" & lastRow)
+    	
     End if
 
+End Sub
+
+Sub ExcludeSpecificValueInPivot(worksheet as string, excludeList as string, pivotName as string, pivotField as string)
+    Dim ws As Worksheet
+    Dim pt As PivotTable
+    Dim pf As PivotField
+    Dim pi As PivotItem
+
+    ' Set worksheet and pivot table
+    Set ws = ThisWorkbook.Worksheets(worksheet)
+    Set pt = ws.PivotTables(pivotName)
+    Set pf = pt.PivotFields(pivotField)
+
+'MsgBox "Field '" & pf & "' found in PivotTable '" & pt & "'."
+
+    ' Loop through each item in the pivot field
+    For Each pi In pf.PivotItems
+        pi.Visible = True
+        For j = LBound(split(excludeList,",")) To UBound(split(excludeList,","))
+            If pi.Name = split(excludeList,",")(j) Then
+		'MsgBox "Exclude '" & pi.Name & "' from PivotTable '" & pt & "'."
+                pi.Visible = False
+                Exit For
+            End If
+        Next j
+    Next pi
+End Sub
+
+Sub SetPivotTableRange(worksheet as string, lastRow as Long)
+    Dim pivotTable As PivotTable
+    Dim pivotRange As Range
+    Dim dataRange As Range
+    
+    Set ws = ThisWorkbook.Sheets(worksheet)
+    Set dataRange = ws.Range("'Pivot by CC'!$E$5:$O$" & lastRow)
+    Set pivotTable = ws.PivotTables(1)
+    pivotTable.ChangePivotCache ThisWorkbook.PivotCaches.Create( _
+         SourceType:=xlDatabase, _
+         SourceData:=dataRange)
+End Sub
+
+Public Sub InsertPicture(strWorksheet as string,strRange as string,strImgPath as string)
+    Dim ws As Worksheet
+    Dim rng As Range
+    Dim shape As Shape
+    
+    ' Set the worksheet and range
+    Set ws = ThisWorkbook.Sheets(strWorksheet)
+    Set rng = ws.Range(strRange)
+    
+    ' Insert the picture and set the shape object
+    Set shape = ws.Shapes.AddPicture(Filename:=strImgPath, _
+                                     LinkToFile:=msoFalse, _
+                                     SaveWithDocument:=msoCTrue, _
+                                     Left:=rng.Left, _
+                                     Top:=rng.Top, _
+                                     Width:=-1, _
+                                     Height:=-1)
 End Sub

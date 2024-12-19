@@ -29,6 +29,7 @@
       "Path": "SubProcesses/Recharges - 3.3 Identify Cost Center.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "screenshot&Sequence_1",
         "dtTracker&Sequence_1",
         "dtWorkings&Sequence_1",
         "dtActiveList&Sequence_1"
@@ -163,6 +164,7 @@
       "Path": "SubProcesses/Recharges - 3.1 Copy Data In Template.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "boolPopUp&Sequence_1",
         "screenshot&Sequence_1",
         "dtSummary&Sequence_1"
       ],
@@ -208,6 +210,25 @@
         "out_CSNFileLocation",
         "in_StrDownloadLocation"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/WorkflowTestCaseTemplate.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtTracker&Sequence_7",
+        "Config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

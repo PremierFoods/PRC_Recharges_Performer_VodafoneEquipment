@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1055.2,3035.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1055.2,5207.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AfterResume_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -148,19 +148,27 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Steps done in this workflow:&#xA;1. Read Workings and Active List from Vodafone Equipment Template&#xA;2. Read Tracker from Sharepoint link&#xA;3. Identify Cost Centers based on rules using active list and tracker&#xA;4. Write Cost Center in column CC identified&#xD;&#xA;5. If any missing CC, create body for email containing missing CC, else create body for successful run&#xA;" DisplayName="Recharges - 3.3 Identify Cost Center" sap:VirtualizedContainerService.HintSize="576,2970.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap2010:Annotation.AnnotationText="Steps done in this workflow:&#xA;1. Read Workings and Active List from Vodafone Equipment Template&#xA;2. Read Tracker from Sharepoint link&#xA;3. Identify Cost Centers based on rules using active list and tracker&#xA;4. Write Cost Center in column CC identified&#xA;5. If any missing CC, create body for email containing missing CC, else create body for successful run&#xA;" DisplayName="Recharges - 3.3 Identify Cost Center" sap:VirtualizedContainerService.HintSize="576,5142.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtWorkings" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtActiveList" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtTracker" />
+      <Variable x:TypeArguments="ui:Image" Name="screenshot" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Vodafone Usage" sap:VirtualizedContainerService.HintSize="513.6,381.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_strTemplatePath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Vodafone Usage" sap:VirtualizedContainerService.HintSize="513.6,421.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_strTemplatePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -195,24 +203,207 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Tracker" sap:VirtualizedContainerService.HintSize="513.6,281.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_Config(&quot;Recharges_VodafoneTracker_SharepointURL&quot;).ToString]">
-      <ui:ExcelApplicationScope.Body>
-        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="513.6,986.4" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" Url="[in_Config(&quot;Recharges_VodafoneTracker_SharepointURL&quot;).ToString]">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,172" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,860.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtTracker]" DisplayName="Read Range - Vodafone" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_6" SheetName="[in_Config(&quot;VodafoneTrackerSheetName&quot;).ToString]" />
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="387.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="tab" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3071aee3-1764-4b0e-aa98-67cf4044b1aa">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="387.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="esc" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3071aee3-1764-4b0e-aa98-67cf4044b1aa">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'File'" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3cc1db8c-b844-42f0-ab34-24973c56e126" InformativeScreenshot="c2f53cd3b327a24229e9c1d83632d40d" Selector="&lt;html app='chrome.exe' title='*EE mobile - Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl tag='BUTTON' aaname='File' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Create a Copy' " sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1cfc7a6e-19ee-42dc-b9e1-33936030fdc5" InformativeScreenshot="8ef02fcd43672402d07304278e66383d" Selector="&lt;html app='chrome.exe' title='Vodafone &amp;amp; EE mobile - Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl tag='DIV' name='Create a Copy' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Download a copy'" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="59343c60-ad11-4237-a4b9-33061e268991" InformativeScreenshot="b74de5391cf0234f7168e87c824fe44a" Selector="&lt;html app='chrome.exe' title='*Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl aaname='Download a Copy' parentid='MainApp' parentname='Download a Copy' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:OpenBrowser>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="513.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Read tracker&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Tracker" sap:VirtualizedContainerService.HintSize="513.6,321.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_6" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[string.Format(in_Config(&quot;DownloadsPath&quot;).ToString,Environment.UserName)+&quot;\Vodafone &amp; EE mobile - Order tracker.xlsx&quot;]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,172" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtTracker]" DisplayName="Read Range - Vodafone" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_7" SheetName="[in_Config(&quot;VodafoneTrackerSheetName&quot;).ToString]" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <TryCatch DisplayName="Try - Populate CC identified, Name identified and CC comments" sap:VirtualizedContainerService.HintSize="513.6,325.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="513.6,80.8" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[string.Format(in_Config(&quot;DownloadsPath&quot;).ToString,Environment.UserName)+&quot;\Vodafone &amp; EE mobile - Order tracker.xlsx&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="513.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1168.8,531.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Parallel sap:VirtualizedContainerService.HintSize="1106.4,419.2" sap2010:WorkflowViewState.IdRef="Parallel_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Tracker" sap:VirtualizedContainerService.HintSize="483.2,372.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_Config(&quot;Recharges_VodafoneTracker_SharepointURL&quot;).ToString]">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,172" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtTracker]" DisplayName="Read Range - Vodafone" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_6" SheetName="[in_Config(&quot;VodafoneTrackerSheetName&quot;).ToString]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ExcelApplicationScope.Body>
+            </ui:ExcelApplicationScope>
+            <Sequence sap:VirtualizedContainerService.HintSize="449.6,372.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TakeScreenshot DisplayName="Take Screenshot - PDF Invoice" sap:VirtualizedContainerService.HintSize="387.2,86.4" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[screenshot]" WaitBefore="600">
+                <ui:TakeScreenshot.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="8ffd2612-abfe-4104-aeda-5cac75686c6f">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TakeScreenshot.Target>
+              </ui:TakeScreenshot>
+              <ui:SaveImage DisplayName="Save Image of PDF invoice" FileName="[in_Config(&quot;Recharges_SaveScreenshotLocation&quot;).ToString]" sap:VirtualizedContainerService.HintSize="387.2,134.4" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[screenshot]" />
+            </Sequence>
+          </Parallel>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="513.6,134.4" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome.exe" />
+    <TryCatch DisplayName="Try - Populate CC identified, Name identified and CC comments" sap:VirtualizedContainerService.HintSize="513.6,638.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each row As datarow In io_dtWorkings.Rows&#xA;If Not String.IsNullOrWhiteSpace(row(&quot;PO Number&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(row(&quot;Handset Reference&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(row(&quot;Allocation Code 1/ CC&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(row(&quot;Allocation Code 2&quot;).ToString) &#xA;&#x9;row(&quot;CC identified&quot;) = in_dtTracker.AsEnumerable.Where(Function(x) x(&quot;Supportworks Incident number&quot;).ToString = row(&quot;PO Number&quot;).tostring).CopyToDataTable.Rows.Item(0)(&quot;Cost Centre&quot;).ToString&#xA;&#x9;row(&quot;Name identified&quot;) =  in_dtTracker.AsEnumerable.Where(Function(x) x(&quot;Supportworks Incident number&quot;).ToString = row(&quot;PO Number&quot;).tostring).CopyToDataTable.Rows.Item(0)(&quot;User&quot;).ToString&#xA;&#x9;row(&quot;CC comments&quot;) = &quot;Cost Center &quot;+row(&quot;CC identified&quot;).ToString+ &quot; and Name &quot; +row(&quot;Name identified&quot;).ToString+&quot; extracted using Vodafone &amp; EE mobile - Order tracker.&quot;&#xA;&#x9;Dim strTrackerCostCenter As String = in_dtTracker.AsEnumerable.Where(Function(x) x(&quot;Supportworks Incident number&quot;).ToString = row(&quot;PO Number&quot;).tostring).CopyToDataTable.Rows.Item(0)(&quot;Payroll number&quot;).ToString&#xA;&#x9;If in_dtActiveList.AsEnumerable.Any(Function(x) x(&quot;Pers.No.&quot;).ToString.ToLower.Trim = strTrackerCostCenter)&#xA;&#x9;&#x9;row(&quot;CC identified&quot;) = in_dtActiveList.AsEnumerable.Where(Function(x) x(&quot;Pers.No.&quot;).ToString.tolower.Trim = strTrackerCostCenter).CopyToDataTable.Rows.Item(0)(&quot;CC to use for recharge&quot;).ToString&#xA;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;Cost Center &quot;+row(&quot;CC identified&quot;).ToString+ &quot; and Name &quot; +row(&quot;Name identified&quot;).ToString+&quot; extracted using Vodafone &amp; EE mobile - Order tracker.&quot;,row(&quot;CC Comments&quot;).tostring +&quot; The robot was able to find the Pers.No. in column A, from the Active List, and returned the Cost Center from column H, from the Active List: &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;&#x9;end if&#xA;Else&#xA;If io_dtWorkings.Rows.IndexOf(row) = 0 And String.IsNullOrWhiteSpace(row(&quot;Allocation Code 2&quot;).tostring) Or row(&quot;Allocation Code 1/ CC&quot;).ToString = &quot;Central Te&quot;&#xA;&#x9;console.WriteLine(&quot;can't extract CC and Name.&quot;)&#xA;&#x9;row(&quot;CC comments&quot;) = &quot;The robot can't extract cost center and name due to missing data.&quot;&#xA;Else&#xA;&#x9;If Not String.IsNullOrWhiteSpace(row(&quot;Allocation Code 2&quot;).tostring)&#xA;&#x9;&#x9;console.WriteLine(&quot;pers no &quot;+ row(&quot;Allocation Code 2&quot;).tostring)&#xA;&#x9;&#x9;If in_dtActiveList.AsEnumerable.Any(Function(x) x(&quot;Pers.No.&quot;).ToString.ToLower.Trim = row(&quot;Allocation Code 2&quot;).ToString.ToLower.Trim)&#xA;&#x9;&#x9;&#x9;row(&quot;CC identified&quot;) = in_dtActiveList.AsEnumerable.Where(Function(x) x(&quot;Pers.No.&quot;).ToString.tolower.Trim = row(&quot;Allocation Code 2&quot;).ToString.ToLower.Trim).CopyToDataTable.Rows.Item(0)(&quot;CC to use for recharge&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;Name identified&quot;) = in_dtActiveList.AsEnumerable.Where(Function(x) x(&quot;Pers.No.&quot;).ToString.tolower.Trim = row(&quot;Allocation Code 2&quot;).ToString.ToLower.Trim).CopyToDataTable.Rows.Item(0)(&quot;Personnel Number&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(Not String.IsNullOrWhiteSpace(row(&quot;CC identified&quot;).ToString),&quot;Value in column K is &quot;+row(&quot;Allocation Code 2&quot;).tostring+&quot;. The robot was able to find the Pers.No. in column A, from the Active List, and returned the Cost Center from column H, from the Active List: &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,&quot;&quot;)&#xA;&#x9;&#x9;Else&#xA;&#x9;&#x9;&#x9;console.WriteLine( &quot;The robot copied the cost center from column I: &quot;+row(&quot;Allocation Code 1/ CC&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;&#x9;row(&quot;CC identified&quot;) = row(&quot;Allocation Code 1/ CC&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;Name identified&quot;) = row(&quot;Handset Reference&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = &quot;The robot copied the cost center from column I: &quot;+row(&quot;Allocation Code 1/ CC&quot;).ToString+&quot;.&quot;&#xA;&#x9;&#x9;End If&#xA;&#x9;Else If Not String.IsNullOrWhiteSpace(row(&quot;Handset Reference&quot;).ToString)&#xA;&#x9;&#x9;If in_dtActiveList.AsEnumerable.Any(Function(x) x(&quot;Personnel Number&quot;).ToString.ToLower.Trim = row(&quot;Handset Reference&quot;).ToString.ToLower.Trim)&#xA;&#x9;&#x9;&#x9;row(&quot;CC identified&quot;) = in_dtActiveList.AsEnumerable.Where(Function(x) x(&quot;Personnel Number&quot;).ToString.tolower.Trim = row(&quot;Handset Reference&quot;).ToString.ToLower.Trim).CopyToDataTable.Rows.Item(0)(&quot;CC to use for recharge&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;Name identified&quot;) = in_dtActiveList.AsEnumerable.Where(Function(x) x(&quot;Personnel Number&quot;).ToString.tolower.Trim = row(&quot;Handset Reference&quot;).ToString.ToLower.Trim).CopyToDataTable.Rows.Item(0)(&quot;Personnel Number&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(Not String.IsNullOrWhiteSpace(row(&quot;CC identified&quot;).ToString),&quot;Value in column H is &quot;+row(&quot;Handset Reference&quot;).tostring+&quot;. The robot was able to find the Personnel Number in column B, from the Active List, and returned the Cost Center from column H, from the Active List: &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,&quot;&quot;)&#xA;&#x9;&#x9;Else&#xA;&#x9;&#x9;&#x9;console.WriteLine( &quot;The robot copied the cost center from column I: &quot;+row(&quot;Allocation Code 1/ CC&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;&#x9;row(&quot;CC identified&quot;) = row(&quot;Allocation Code 1/ CC&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;Name identified&quot;) = row(&quot;Handset Reference&quot;).ToString&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = &quot;The robot copied the cost center from column I: &quot;+row(&quot;Allocation Code 1/ CC&quot;).ToString+&quot;.&quot;&#xA;&#x9;&#x9;End If&#xA;&#x9;Else If String.IsNullOrWhiteSpace(row(&quot;Allocation Code 2&quot;).tostring)&#xA;&#x9;&#x9;console.WriteLine( &quot;The robot copied the cost center from column I from the row above: &quot;+io_dtWorkings.Rows(io_dtWorkings.Rows.IndexOf(row)-1)(&quot;Allocation Code 1/ CC&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;row(&quot;CC identified&quot;) = io_dtWorkings.Rows(io_dtWorkings.Rows.IndexOf(row)-1)(&quot;CC identified&quot;).ToString&#xA;&#x9;&#x9;row(&quot;Name identified&quot;) = io_dtWorkings.Rows(io_dtWorkings.Rows.IndexOf(row)-1)(&quot;Name identified&quot;).ToString&#xA;&#x9;&#x9;If  io_dtWorkings.Rows(io_dtWorkings.Rows.IndexOf(row)-1)(&quot;CC Comments&quot;).ToString = &quot;The robot can't extract cost center and name due to missing data.&quot;&#x9;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = &quot;The robot can't extract cost center and name due to missing data.&quot;&#x9;&#xA;&#x9;&#x9;Else&#x9;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = &quot;The robot copied the cost center from column I from the row above: &quot;+If(String.IsNullOrWhiteSpace(io_dtWorkings.Rows(io_dtWorkings.Rows.IndexOf(row)-1)(&quot;Allocation Code 1/ CC&quot;).ToString),io_dtWorkings.Rows(io_dtWorkings.Rows.IndexOf(row)-1)(&quot;CC identified&quot;).ToString,io_dtWorkings.Rows(io_dtWorkings.Rows.IndexOf(row)-1)(&quot;Allocation Code 1/ CC&quot;).ToString)+&quot;.&quot;&#xA;&#x9;&#x9;End If&#xA;&#x9;End If&#xA;End If&#xA;End If&#xA;If Not String.IsNullOrWhiteSpace(row(&quot;CC identified&quot;).ToString)&#xA;&#x9;Select Case row(&quot;CC identified&quot;).ToString.Substring(0, 2)&#xA;&#x9;&#x9;Case &quot;16&quot;&#xA;       &#x9;&#x9;row(&quot;CC identified&quot;) = &quot;160200&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;   &#x9;&#x9;Case &quot;17&quot;&#xA;       &#x9;&#x9;row(&quot;CC identified&quot;) = &quot;170200&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;   &#x9;&#x9;Case &quot;H1&quot;&#xA;       &#x9;&#x9;row(&quot;CC identified&quot;) = &quot;H10000&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;    &#x9;Case &quot;H2&quot;&#xA;        &#x9;row(&quot;CC identified&quot;) = &quot;H20100&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;Case &quot;H3&quot;&#xA;       &#x9;&#x9;row(&quot;CC identified&quot;) = &quot;H30100&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;Case &quot;G1&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC identified&quot;) = &quot;G10200&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;Case Else&#xA;&#x9;End Select&#xA;&#xA;&#x9;Select Case row(&quot;CC identified&quot;).ToString&#xA;    &#x9;Case &quot;990244&quot;&#xA;        &#x9;row(&quot;CC identified&quot;) = &quot;990003&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;    &#x9;Case &quot;990010&quot;&#xA;         &#x9;row(&quot;CC identified&quot;) = &quot;990210&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;    &#x9;Case &quot;990098&quot;&#xA;        &#x9;row(&quot;CC identified&quot;) = &quot;990011&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;    &#x9;Case &quot;990051&quot;&#xA;        &#x9;row(&quot;CC identified&quot;) = &quot;990077&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;Case &quot;181070&quot;&#xA;         &#x9;row(&quot;CC identified&quot;) = &quot;180211&quot;&#xA;&#x9;&#x9;&#x9;row(&quot;CC comments&quot;) = If(String.IsNullOrWhiteSpace(row(&quot;CC comments&quot;).ToString),&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;,row(&quot;CC Comments&quot;).tostring +&quot;The robot replaced the cost center to &quot;+row(&quot;CC identified&quot;).ToString+&quot;.&quot;)&#xA;&#x9;&#x9;Case Else&#xA;&#x9;End Select&#xA;End If&#xA;&#xA;Next&#xA;" DisplayName="Populate CC identified, Name identified and CC comments" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
           <ui:InvokeCode.Arguments>
@@ -223,10 +414,10 @@
         </ui:InvokeCode>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,160.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,160.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -239,6 +430,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="513.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Write Workings&quot;]" />
     <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Data Received" sap:VirtualizedContainerService.HintSize="513.6,309.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_strTemplatePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
@@ -281,12 +473,8 @@
             <TryCatch.Try>
               <ui:InvokeCode ContinueOnError="{x:Null}" Code="System.Text.StringBuilder htmlBuilder = new System.Text.StringBuilder();&#xA;&#xA;htmlBuilder.Append(@&quot;&#xA;&lt;!DOCTYPE html&gt;&#xA;&lt;html lang='en'&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset='UTF-8'&gt;&#xA;    &lt;meta name='viewport' content='width=device-width, initial-scale=1.0'&gt;&#xA;    &lt;title&gt;Missing CC Identification&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        table {&#xA;            border-collapse: collapse;&#xA;            width: 100%;&#xA;        }&#xA;        th, td {&#xA;            border: 1px solid #ddd;&#xA;            padding: 8px;&#xA;            text-align: left;&#xA;        }&#xA;        th {&#xA;            background-color: #f2f2f2;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;p&gt;Hi,&lt;/p&gt;&#xA;&#x9;&lt;p&gt;Attached you will find the Journal the robot has prepared.&lt;/p&gt;&#xA;    &lt;p&gt;See below the order dates for which a cost center and/or a name couldn't be extracted for &lt;strong&gt;Vodafone Equipment recharges&lt;/strong&gt;:&lt;/p&gt;&#xA;    &lt;table&gt;&#xA;        &lt;tr&gt;&#xA;            &lt;th&gt;Order Date&lt;/th&gt;&#xA;        &lt;/tr&gt;&quot;);&#xA;&#xA;foreach (System.Data.DataRow row in dtMissingCC.Rows)&#xA;{&#xA;    htmlBuilder.Append($@&quot;&#xA;        &lt;tr&gt;&#xA;            &lt;td&gt;{row[&quot;Order Date&quot;]}&lt;/td&gt;&#xA;        &lt;/tr&gt;&quot;);&#xA;}&#xA;&#xA;htmlBuilder.Append(@&quot;&#xA;    &lt;/table&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&quot;);&#xA;&#xA;string htmlEmailContent = htmlBuilder.ToString();&#xA;&#xA;strMailBody = htmlEmailContent;" DisplayName="Invoke Code - Create Mail Body" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
                 <ui:InvokeCode.Arguments>
-                  <InArgument x:TypeArguments="sd:DataTable" x:Key="dtMissingCC">
-                    <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtWorkings.AsEnumerable().Where(Function(row) String.IsNullOrWhiteSpace(row(&quot;CC identified&quot;).ToString()) AndAlso Not String.IsNullOrEmpty(row(&quot;Order Date&quot;).ToString())).CopyToDataTable().DefaultView.ToTable(True, &quot;Order Date&quot;)" />
-                  </InArgument>
-                  <InOutArgument x:TypeArguments="x:String" x:Key="strMailBody">
-                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strMailBody" />
-                  </InOutArgument>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="dtMissingCC">[dtWorkings.AsEnumerable().Where(Function(row) String.IsNullOrWhiteSpace(row("CC identified").ToString()) AndAlso Not String.IsNullOrEmpty(row("Order Date").ToString())).CopyToDataTable().DefaultView.ToTable(True, "Order Date")]</InArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="strMailBody">[out_strMailBody]</InOutArgument>
                 </ui:InvokeCode.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -325,9 +513,7 @@
             <TryCatch.Try>
               <ui:InvokeCode ContinueOnError="{x:Null}" Code="System.Text.StringBuilder htmlBuilder = new System.Text.StringBuilder();&#xA;&#xA;htmlBuilder.Append(@&quot;&#xA;&lt;!DOCTYPE html&gt;&#xA;&lt;html lang='en'&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset='UTF-8'&gt;&#xA;    &lt;meta name='viewport' content='width=device-width, initial-scale=1.0'&gt;&#xA;    &lt;style&gt;&#xA;        th, td {&#xA;            border: 1px solid #ddd;&#xA;            padding: 8px;&#xA;            text-align: left;&#xA;        }&#xA;        th {&#xA;            background-color: #f2f2f2;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;p&gt;Hi,&lt;/p&gt;&#xA;&#x9;&lt;p&gt;Attached you will find the Journal the robot has prepared.&lt;/p&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&quot;);&#xA;string htmlEmailContent = htmlBuilder.ToString();&#xA;&#xA;strMailBody = htmlEmailContent;" DisplayName="Invoke Code - Create Mail Body" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_4" Language="CSharp">
                 <ui:InvokeCode.Arguments>
-                  <InOutArgument x:TypeArguments="x:String" x:Key="strMailBody">
-                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strMailBody" />
-                  </InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="strMailBody">[out_strMailBody]</InOutArgument>
                 </ui:InvokeCode.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">

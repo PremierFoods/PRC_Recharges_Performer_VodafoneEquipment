@@ -78,35 +78,41 @@ Sub ExtendFormula(worksheet as String, lastRow as Long)
     if ws.Name = "Journal" Then
        Set pt = ThisWorkbook.Worksheets("Pivot by CC").PivotTables("Pivot by CC")  
         pt.RefreshTable
-        lastRow = pt.DataBodyRange.Count + 2
+        lastRow = pt.DataBodyRange.Count + 1
 
-    	' Get the value from cell B4
-    	sourceValue = ThisWorkbook.Worksheets(worksheet).Range("B4").Value  
+    	' Get the value from cell B3
+    	sourceValue = ThisWorkbook.Worksheets(worksheet).Range("B3").Value  
 
         ' Loop through each cell in the range  and assign the value from B4
-        For Each cell In ThisWorkbook.Worksheets(worksheet).Range("B5:B"& lastRow)
+        For Each cell In ThisWorkbook.Worksheets(worksheet).Range("B4:B"& lastRow)
            If cell.Locked = False Then
             cell.Value = sourceValue
            End If
         Next cell
 
-    	' Set the cell that contains the initial formula
-    	Set formulaCell = ws.Range("I4")
+       ' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("E3")
 
     	' Extend the formula down to the last row
-    	formulaCell.AutoFill Destination:=ws.Range("I4:I" & lastRow)
+    	formulaCell.AutoFill Destination:=ws.Range("E3:E" & lastRow)
 
     	' Set the cell that contains the initial formula
-    	Set formulaCell = ws.Range("L4")
+    	Set formulaCell = ws.Range("I3")
+
+    	' Extend the formula down to the last row
+    	formulaCell.AutoFill Destination:=ws.Range("I3:I" & lastRow)
+
+    	' Set the cell that contains the initial formula
+    	Set formulaCell = ws.Range("L3")
 
    	 ' Extend the formula down to the last row
-    	formulaCell.AutoFill Destination:=ws.Range("L4:L" & lastRow)
+    	formulaCell.AutoFill Destination:=ws.Range("L3:L" & lastRow)
         
 	' Set the cell that contains the initial formula
-    	Set formulaCell = ws.Range("S5")
+    	Set formulaCell = ws.Range("S3")
 
    	 ' Extend the formula down to the last row
-    	formulaCell.AutoFill Destination:=ws.Range("S5:S" & lastRow)
+    	formulaCell.AutoFill Destination:=ws.Range("S3:S" & lastRow)
     	
     End if
 

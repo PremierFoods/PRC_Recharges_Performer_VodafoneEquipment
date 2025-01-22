@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1370.4,4845.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1370.4,5670.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AfterResume_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -167,7 +167,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Steps done in this workflow:&#xA;1. Read Workings and Active List from Vodafone Equipment Template&#xA;2. Read Tracker from Sharepoint link&#xA;3. Identify Cost Centers based on rules using active list and tracker&#xA;4. Write Cost Center in column CC identified&#xA;5. If any missing CC, create body for email containing missing CC, else create body for successful run&#xA;" DisplayName="Recharges - 3.3 Identify Cost Center" sap:VirtualizedContainerService.HintSize="576,4780.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Steps done in this workflow:&#xA;1. Read Workings and Active List from Vodafone Equipment Template&#xA;2. Read Tracker from Sharepoint link&#xA;3. Identify Cost Centers based on rules using active list and tracker&#xA;4. Write Cost Center in column CC identified&#xA;5. If any missing CC, create body for email containing missing CC, else create body for successful run&#xA;" DisplayName="Recharges - 3.3 Identify Cost Center" sap:VirtualizedContainerService.HintSize="576,5605.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtWorkings" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtActiveList" />
@@ -308,15 +308,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="513.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="513.6,516" sap2010:WorkflowViewState.IdRef="CommentOut_3">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,355.2" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,437.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" ImpersonatedUserEmailAddress="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" TenantId="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" Account="vpn.x.tquila@premierfoods.co.uk" AuthenticationType="InteractiveToken" ConfigLocation="PropertiesPanel" DisplayName="Microsoft 365 Scope" EmailAddress="vpn.x.tquila@premierfoods.co.uk" Environment="Global" sap:VirtualizedContainerService.HintSize="387.2,243.2" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" RuntimeItemInputMode="Browse" UseConnectionService="False">
+          <uma:Office365ApplicationScope ApplicationId="{x:Null}" ApplicationSecret="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" ImpersonatedUserEmailAddress="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" SecurePassword="{x:Null}" TenantId="{x:Null}" Timeout="{x:Null}" Username="{x:Null}" Account="vpn.x.tquila@premierfoods.co.uk" AuthenticationType="InteractiveToken" ConfigLocation="PropertiesPanel" DisplayName="Microsoft 365 Scope" EmailAddress="vpn.x.tquila@premierfoods.co.uk" Environment="Global" sap:VirtualizedContainerService.HintSize="387.2,325.6" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" RuntimeItemInputMode="Browse" UseConnectionService="False">
             <uma:Office365ApplicationScope.AuthenticationScopes>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
             </uma:Office365ApplicationScope.AuthenticationScopes>
@@ -346,140 +346,123 @@
       </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="513.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_6">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="545.6,1138.4" sap2010:WorkflowViewState.IdRef="Sequence_23">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="483.2,1026.4" sap2010:WorkflowViewState.IdRef="OpenBrowser_4" Url="[in_Config(&quot;Recharges_VodafoneTracker_SharepointURL&quot;).ToString]">
-            <ui:OpenBrowser.Body>
-              <ActivityAction x:TypeArguments="x:Object">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,860.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="387.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="tab" KeyModifiers="None" SpecialKey="True">
-                    <ui:SendHotkey.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3071aee3-1764-4b0e-aa98-67cf4044b1aa">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:SendHotkey.Target>
-                  </ui:SendHotkey>
-                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="387.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="esc" KeyModifiers="None" SpecialKey="True">
-                    <ui:SendHotkey.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3071aee3-1764-4b0e-aa98-67cf4044b1aa">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:SendHotkey.Target>
-                  </ui:SendHotkey>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'File'" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3cc1db8c-b844-42f0-ab34-24973c56e126" InformativeScreenshot="c2f53cd3b327a24229e9c1d83632d40d" Selector="&lt;html app='chrome.exe' title='*EE mobile - Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl tag='BUTTON' aaname='File' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Create a Copy' " sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1cfc7a6e-19ee-42dc-b9e1-33936030fdc5" InformativeScreenshot="8ef02fcd43672402d07304278e66383d" Selector="&lt;html app='chrome.exe' title='Vodafone &amp;amp; EE mobile - Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl tag='DIV' name='Create a Copy' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Download a copy'" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="59343c60-ad11-4237-a4b9-33061e268991" InformativeScreenshot="b74de5391cf0234f7168e87c824fe44a" Selector="&lt;html app='chrome.exe' title='*Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl aaname='Download a Copy' parentid='MainApp' parentname='Download a Copy' tag='SPAN' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
-                </Sequence>
-              </ActivityAction>
-            </ui:OpenBrowser.Body>
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="513.6,986.4" sap2010:WorkflowViewState.IdRef="OpenBrowser_5" Url="[in_Config(&quot;Recharges_VodafoneTracker_SharepointURL&quot;).ToString]">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,860.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:OpenBrowser>
-        </Sequence>
-      </ui:CommentOut.Body>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="387.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="tab" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3071aee3-1764-4b0e-aa98-67cf4044b1aa">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="387.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="esc" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3071aee3-1764-4b0e-aa98-67cf4044b1aa">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'File'" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3cc1db8c-b844-42f0-ab34-24973c56e126" InformativeScreenshot="c2f53cd3b327a24229e9c1d83632d40d" Selector="&lt;html app='chrome.exe' title='*EE mobile - Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl tag='BUTTON' aaname='File' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Create a Copy' " sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1cfc7a6e-19ee-42dc-b9e1-33936030fdc5" InformativeScreenshot="8ef02fcd43672402d07304278e66383d" Selector="&lt;html app='chrome.exe' title='Vodafone &amp;amp; EE mobile - Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl tag='DIV' name='Create a Copy' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Download a copy'" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="59343c60-ad11-4237-a4b9-33061e268991" InformativeScreenshot="b74de5391cf0234f7168e87c824fe44a" Selector="&lt;html app='chrome.exe' title='*Order tracker.xlsx' /&gt;&lt;webctrl id='WacFrame_Excel_0' tag='IFRAME' /&gt;&lt;webctrl aaname='Download a Copy' parentid='MainApp' parentname='Download a Copy' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
+    </ui:OpenBrowser>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="513.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Read tracker&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -538,18 +521,7 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="513.6,271.2" sap2010:WorkflowViewState.IdRef="CommentOut_9">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,192.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[string.Format(in_Config(&quot;DownloadsPath&quot;).ToString,Environment.UserName)+&quot;\Vodafone &amp; EE mobile - Order tracker.xlsx&quot;]" />
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="513.6,80.8" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[string.Format(in_Config(&quot;DownloadsPath&quot;).ToString,Environment.UserName)+&quot;\Vodafone &amp; EE mobile - Order tracker.xlsx&quot;]" />
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="513.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1168.8,531.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
@@ -671,15 +643,15 @@
         <InArgument x:TypeArguments="x:String">[dtWorkings.Rows(0)(4).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[dtWorkings.AsEnumerable().Any(Function(row) String.IsNullOrWhiteSpace(row(&quot;CC identified&quot;).ToString()) AndAlso Not String.IsNullOrEmpty(row(&quot;Order Date&quot;).ToString())) = true]" DisplayName="If Missing CCs found" sap:VirtualizedContainerService.HintSize="513.6,1154.4" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dtWorkings.AsEnumerable().Any(Function(row) String.IsNullOrWhiteSpace(row(&quot;CC identified&quot;).ToString()) AndAlso Not String.IsNullOrEmpty(row(&quot;Order Date&quot;).ToString())) = true]" DisplayName="If Missing CCs found" sap:VirtualizedContainerService.HintSize="513.6,772.8" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="480,485.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence sap:VirtualizedContainerService.HintSize="480,589.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,396" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,500" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <TryCatch.Try>
               <ui:InvokeCode ContinueOnError="{x:Null}" Code="System.Text.StringBuilder htmlBuilder = new System.Text.StringBuilder();&#xA;&#xA;htmlBuilder.Append(@&quot;&#xA;&lt;!DOCTYPE html&gt;&#xA;&lt;html lang='en'&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset='UTF-8'&gt;&#xA;    &lt;meta name='viewport' content='width=device-width, initial-scale=1.0'&gt;&#xA;    &lt;title&gt;Missing CC Identification&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        table {&#xA;            border-collapse: collapse;&#xA;            width: 100%;&#xA;        }&#xA;        th, td {&#xA;            border: 1px solid #ddd;&#xA;            padding: 8px;&#xA;            text-align: left;&#xA;        }&#xA;        th {&#xA;            background-color: #f2f2f2;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;p&gt;Hi,&lt;/p&gt;&#xA;&#x9;&lt;p&gt;Attached you will find the Journal the robot has prepared.&lt;/p&gt;&#xA;    &lt;p&gt;See below the order dates for which a cost center and/or a name couldn't be extracted for &lt;strong&gt;Vodafone Equipment recharges&lt;/strong&gt;:&lt;/p&gt;&#xA;    &lt;table&gt;&#xA;        &lt;tr&gt;&#xA;            &lt;th&gt;Order Date&lt;/th&gt;&#xA;        &lt;/tr&gt;&quot;);&#xA;&#xA;foreach (System.Data.DataRow row in dtMissingCC.Rows)&#xA;{&#xA;    htmlBuilder.Append($@&quot;&#xA;        &lt;tr&gt;&#xA;            &lt;td&gt;{row[&quot;Order Date&quot;]}&lt;/td&gt;&#xA;        &lt;/tr&gt;&quot;);&#xA;}&#xA;&#xA;htmlBuilder.Append(@&quot;&#xA;    &lt;/table&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&quot;);&#xA;&#xA;string htmlEmailContent = htmlBuilder.ToString();&#xA;&#xA;strMailBody = htmlEmailContent;" DisplayName="Invoke Code - Create Mail Body" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
                 <ui:InvokeCode.Arguments>

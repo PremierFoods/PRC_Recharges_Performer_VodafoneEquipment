@@ -29,6 +29,9 @@
       "Path": "SubProcesses/Recharges - 3.3 Identify Cost Center.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "FileItem&Sequence_18",
+        "sStrAppSecret&Sequence_1",
+        "strAppID&Sequence_1",
         "screenshot&Sequence_1",
         "dtTracker&Sequence_1",
         "dtWorkings&Sequence_1",
@@ -181,8 +184,9 @@
       "Path": "test.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "Config&Sequence_1",
-        "strLocation&Sequence_1"
+        "sStrAppSecret&Sequence_1",
+        "strAppID&Sequence_1",
+        "FileItem&Sequence_2"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],

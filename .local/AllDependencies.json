@@ -20756,14 +20756,14 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alexandra.x.marcu\\.nuget\\packages\\": {}
+    "C:\\Users\\vpn.x.tquila\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "PRC_Recharges_Performer_VodafoneEquipment",
       "projectName": "PRC_Recharges_Performer_VodafoneEquipment",
       "projectPath": "I:\\Group\\RPA\\Ui Path Code\\Alexandra\\PRC_Recharges_Performer_VodafoneEquipment\\.local",
-      "packagesPath": "C:\\Users\\alexandra.x.marcu\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\vpn.x.tquila\\.nuget\\packages\\",
       "outputPath": "I:\\Group\\RPA\\Ui Path Code\\Alexandra\\PRC_Recharges_Performer_VodafoneEquipment\\.local"
     },
     "frameworks": {

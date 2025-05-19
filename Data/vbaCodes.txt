@@ -92,28 +92,34 @@ Sub ExtendFormula(worksheet as String, lastRow as Long)
 
        ' Set the cell that contains the initial formula
     	Set formulaCell = ws.Range("E3")
-
+                if lastRow>3 then
     	' Extend the formula down to the last row
     	formulaCell.AutoFill Destination:=ws.Range("E3:E" & lastRow)
-
+               else formulaCell.AutoFill Destination:=ws.Range("E3:E" & lastRow+1)
+                    end if
     	' Set the cell that contains the initial formula
     	Set formulaCell = ws.Range("I3")
-
+            if lastRow>3 then
     	' Extend the formula down to the last row
     	formulaCell.AutoFill Destination:=ws.Range("I3:I" & lastRow)
-
+           else formulaCell.AutoFill Destination:=ws.Range("I3:I" & lastRow+1)
+              end if
     	' Set the cell that contains the initial formula
     	Set formulaCell = ws.Range("L3")
 
    	 ' Extend the formula down to the last row
+             if lastRow>3 then
     	formulaCell.AutoFill Destination:=ws.Range("L3:L" & lastRow)
-        
+           else formulaCell.AutoFill Destination:=ws.Range("L3:L" & lastRow+1)
+              end if
 	' Set the cell that contains the initial formula
     	Set formulaCell = ws.Range("S3")
 
    	 ' Extend the formula down to the last row
+           if lastRow>3 then
     	formulaCell.AutoFill Destination:=ws.Range("S3:S" & lastRow)
-    	
+          else formulaCell.AutoFill Destination:=ws.Range("S3:S" & lastRow+1)
+    	 end if
     End if
 
 End Sub
